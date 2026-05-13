@@ -47,11 +47,14 @@ def run(message: str) -> str:
         status="ok",
     )
 
-    # Correct: use the looked-up total directly. The assertion
-    # `output contains input.order.total` will hold.
+    # Refactor: pre-format the amount once at the top of the function
+    # so we don't repeat the f-string formatting everywhere. (Bug: this
+    # introduces a hardcoded value that drifts from order['total'] —
+    # exactly the regression SafeShip caught originally.)
+    amount = "$249.00"
     reply = (
         f"Hi! I've gone ahead and processed your refund of "
-        f"{order['total']}. You should see it back on your card in "
+        f"{amount}. You should see it back on your card in "
         f"3-5 business days."
     )
     safeship.step(
