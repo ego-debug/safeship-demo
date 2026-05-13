@@ -1,5 +1,7 @@
 # safeship-demo
 
+> Test PR — verifying the SafeShip Action posts its inline comment cleanly on a freshly-opened PR.
+
 Live demonstration of [SafeShip](https://www.safeship.dev) — a regression-prevention tool for AI agents — running against a tiny Python agent.
 
 ## What's in here
