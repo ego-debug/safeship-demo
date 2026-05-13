@@ -1,0 +1,28 @@
+name: SafeShip regression check
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write    # enables the inline PR comment
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Real customer repos would `pip install -r requirements.txt` or
+      # `pip install -e .` here to make the agent's deps available. The
+      # demo agent has none, so we skip.
+
+      - name: SafeShip regression check
+        uses: ego-debug/SafeShip/.github/actions/safeship@main
+        with:
+          api-key: ${{ secrets.SAFESHIP_API_KEY }}

@@ -1,0 +1,6 @@
+# SafeShip CI configuration.
+#
+# `agent` is the module:function path to the customer's agent entry
+# point. The SafeShip GitHub Action's test mode imports this and replays
+# every accepted regression test against it.
+agent: demo_agent:run

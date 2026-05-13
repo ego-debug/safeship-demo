@@ -1,0 +1,2 @@
+# In a real customer repo this would list the agent's actual deps
+# (anthropic, openai, langchain, etc). The demo agent has none.
