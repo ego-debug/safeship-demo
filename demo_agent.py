@@ -47,12 +47,13 @@ def run(message: str) -> str:
         status="ok",
     )
 
-    # Correct: use the looked-up total directly. The assertion
-    # `output contains input.order.total` will hold.
+    # Feature: warmer greeting prefix. Still uses the looked-up total
+    # directly, so the regression test stays green.
     reply = (
-        f"Hi! I've gone ahead and processed your refund of "
+        f"Hey there — thanks so much for reaching out! "
+        f"I've gone ahead and processed your refund of "
         f"{order['total']}. You should see it back on your card in "
-        f"3-5 business days."
+        f"3-5 business days. Let me know if there's anything else!"
     )
     safeship.step(
         tool_name="draft_reply",
